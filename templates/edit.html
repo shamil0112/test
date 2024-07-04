@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        form{
+            max-width: 800px;
+            padding: 20px;
+            margin: 10px;
+            justify-content: center;
+            align-items: center;
+            display: inline-block;
+        }
+        label{
+            display: block;
+            padding: 10px;
+        }
+        input{
+            display: inline-block;
+            width: 250px;
+            border-radius: 10px;
+            border: 2px solid black;
+        }
+        button{
+            display: block;
+            margin-top: 20px;
+            width: 70px;
+            height: 30px;
+            border-radius: 10px;
+            color: white;
+            background-color: blue;
+        }
+    </style>
+</head>
+<body>
+    <form action="{% url 'edit_' edit__.id %}" method="post">
+        {% csrf_token %}
+
+        <label for="title">Title</label>
+        <input type="text" name="title" value="{{edit__.title}}" required>
+        <label for="author">Author</label>
+        <input type="text" name="author" value="{{edit__.athor}}" required>
+        <label for="genre">Genre</label>
+        <input type="text" name="genre" value="{{edit__.genre}}" required>
+        <label for="description">Description</label>
+        <input type="text" name="description" value="{{edit__.description}}" required>
+        <label for="price">Price</label>
+        <input type="text" name="price" value="{{edit__.price}}" required>
+        <label for="p-date">Published Date</label>
+        <input type="date" name="date" value="{{edit__.published_date}}" required>
+        <button type="submit">submit</button>
+
+
+    </form>
+</body>
+</html>
